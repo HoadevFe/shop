@@ -72,7 +72,7 @@ const Home = () => {
       <section className="trending__products">
         <Container>
           <Row>
-            <Col lg="12" className="text-center">
+            <Col lg="12" className="text-center mb-5">
               <h2 className="section__title">Trending Products</h2>
             </Col>
             <ProductsList data={trendingProducts} />
@@ -82,7 +82,7 @@ const Home = () => {
       <section className="best__sales">
         <Container>
           <Row>
-            <Col lg="12" className="text-center">
+            <Col lg="12" className="text-center mb-5">
               <h2 className="section__title">Best Sales</h2>
             </Col>
             <ProductsList data={bestSalesProducts} />
@@ -116,7 +116,7 @@ const Home = () => {
       <section className="new__arrivals">
         <Container>
           <Row>
-            <Col lg="12" className="text-center">
+            <Col lg="12" className="text-center mb-5">
               <h2 className="section__title">New Arrivals</h2>
             </Col>
             <ProductsList data={mobileProducts} />
