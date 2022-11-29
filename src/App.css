@@ -54,3 +54,22 @@ a {
   text-decoration: none;
   color: unset;
 }
+
+img {
+  width: 100%;
+}
+
+section {
+  padding: 60px 0;
+}
+
+.section__title {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 768px) {
+  section {
+    padding: 40px 0;
+  }
+}
