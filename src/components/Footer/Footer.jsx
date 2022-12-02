@@ -86,7 +86,7 @@ const Footer = () => {
           </Col>
           <Col lg="12">
             <p className="footer__copyright">
-              Copyright {year} developed by Muhibur Rajman. All rights reserced
+              Copyright {year} developed by Vincent Chau. All rights reserced
             </p>
           </Col>
         </Row>
