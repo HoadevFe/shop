@@ -19,6 +19,8 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [file, setFile] = useState(null);
   const [loadding, setLoadding] = useState(false);
+  const [eyePassWord, setEyePassWord] = useState(false);
+
   const navigate = useNavigate();
 
   const signup = async (e) => {
@@ -65,6 +67,13 @@ const Signup = () => {
       toast.error("something went wrong");
     }
   };
+  const handleEye = () => {
+    if (!eyePassWord) {
+      setEyePassWord(true);
+    } else {
+      setEyePassWord(false);
+    }
+  };
   return (
     <Helmet title="Signup">
       <section>
@@ -96,11 +105,18 @@ const Signup = () => {
                   </FormGroup>
                   <FormGroup className="form__group">
                     <input
-                      type="password"
+                      type={!eyePassWord ? "password" : "text"}
                       placeholder="Enter your password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                     />
+                    <div onClick={handleEye} className="eye__password">
+                      {eyePassWord ? (
+                        <i class="ri-eye-line"></i>
+                      ) : (
+                        <i class="ri-eye-off-line"></i>
+                      )}
+                    </div>
                   </FormGroup>
                   <FormGroup className="form__group">
                     <input

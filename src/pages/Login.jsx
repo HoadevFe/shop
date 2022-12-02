@@ -12,6 +12,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [eyePassWord, setEyePassWord] = useState(false);
   const navigate = useNavigate();
   const signIn = async (e) => {
     e.preventDefault();
@@ -30,6 +31,13 @@ const Login = () => {
     } catch (error) {
       setLoading(false);
       toast.error(error.message);
+    }
+  };
+  const handleEye = () => {
+    if (!eyePassWord) {
+      setEyePassWord(true);
+    } else {
+      setEyePassWord(false);
     }
   };
   return (
@@ -55,11 +63,18 @@ const Login = () => {
                   </FormGroup>
                   <FormGroup className="form__group">
                     <input
-                      type="password"
+                      type={!eyePassWord ? "password" : "text"}
                       placeholder="Enter your password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                     />
+                    <div onClick={handleEye} className="eye__password">
+                      {eyePassWord ? (
+                        <i class="ri-eye-line"></i>
+                      ) : (
+                        <i class="ri-eye-off-line"></i>
+                      )}
+                    </div>
                   </FormGroup>
                   <button type="submit" className="buy__btn auth__btn">
                     Login
