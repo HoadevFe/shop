@@ -51,6 +51,13 @@ const cartSlice = createSlice({
         0
       );
     },
+    oder: (state, action) => {
+      const a = action.payload;
+      if (a) {
+        state.totalAmount = 0;
+        state.totalQuantity = 0;
+      }
+    },
   },
 });
 

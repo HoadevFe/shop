@@ -1,13 +1,20 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import { Col, Container, Form, FormGroup, Row } from "reactstrap";
 import Helmet from "../components/Helmet/Helmet";
 import CommonSection from "../components/UI/CommonSection";
+import { CartActions } from "../redux/slices/cartSlice";
 import "../styles/checkout.css";
 const Checkout = () => {
   const totalQty = useSelector((state) => state.cartttt.totalQuantity);
   const totalAmount = useSelector((state) => state.cartttt.totalAmount);
+  const dispatch = useDispatch();
 
+  const handleOder = () => {
+    dispatch(CartActions.oder(1));
+    toast.success("Your order has been placed successfully");
+  };
   return (
     <Helmet title="Checkout">
       <CommonSection title="Checkout" />
@@ -56,7 +63,10 @@ const Checkout = () => {
                 <h4>
                   Total Cost: <span>${totalAmount}</span>
                 </h4>
-                <button className="buy__btn auth__btn w-100">
+                <button
+                  onClick={handleOder}
+                  className="buy__btn auth__btn w-100"
+                >
                   Place an order
                 </button>
               </div>
